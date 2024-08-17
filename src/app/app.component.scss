@@ -1,0 +1,50 @@
+$gap: 16px;
+
+:host {
+  display: block;
+  max-width: 1250px;
+  margin: 0 auto;
+  font-family: sans-serif, Arial;
+
+
+  nav {
+    background: lightslategray;
+    display: flex;
+    gap: 16px;
+
+    > a {
+      text-decoration: none;
+      padding: $gap;
+      color: white;
+    }
+  }
+
+  article {
+    background: #ddd;
+    padding: $gap;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    > div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+      grid-auto-rows: minmax(100px, auto);
+      gap: $gap;
+
+      > div {
+        border-radius: 8px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+        padding: $gap;
+
+        h3 {
+          font-size: 17px;
+          margin: 0 0 12px 0;
+        }
+      }
+    }
+  }
+}
+
+

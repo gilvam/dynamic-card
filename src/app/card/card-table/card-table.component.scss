@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow-y: auto;
+  max-height: calc(100% - 32px);
+}
+
+.grid-header,
+.grid-item {
+  display: flex;
+  align-items: center;
+}
+
+.grid-header {
+  background: rgb(0 0 0 / 15%);
+  mix-blend-mode: multiply;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  padding: 6px;
+}
+
+.grid-item {
+  mix-blend-mode: multiply;
+  border-bottom: 1px solid #ddd;
+  padding: 6px;
+}
