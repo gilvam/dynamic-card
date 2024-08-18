@@ -7,17 +7,16 @@
   }
 </nav>
 
-
 @for (item of list; track item) {
   <article>
     <h2 [id]="item.name">{{ item.name }}</h2>
 
-    <div>
+    <div [style.gridTemplateAreas]="getGridTemplateArea(item.gridTemplateArea)">
       @for (card of item.cards; track card; let i = $index) {
         <div
           [style.height]="card.style.height"
           [style.background]="card.style.color"
-          [style.gridArea]="card.style.gridArea"
+          [style.gridArea]="card.id"
         >
           <h3>{{ card.name }}</h3>
           <app-card-display [card]="card"></app-card-display>
