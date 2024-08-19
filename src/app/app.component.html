@@ -1,6 +1,5 @@
 <h1>Dynamic-card</h1>
 
-
 <nav class="menu__nav">
   @for (item of list; track item) {
     <a href="#{{ item.name }}">{{ item.name }}</a>
@@ -18,7 +17,6 @@
           [style.background]="card.style.color"
           [style.gridArea]="card.id"
         >
-          <h3>{{ card.name }}</h3>
           <app-card-display [card]="card"></app-card-display>
         </div>
       }

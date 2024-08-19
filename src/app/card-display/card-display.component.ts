@@ -1,44 +1,44 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, input, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { CardSimpleComponent } from '../card/card-simple/card-simple.component';
 import { CardDoubleComponent } from '../card/card-double/card-double.component';
 import { CardTableComponent } from '../card/card-table/card-table.component';
+import { NgComponentOutlet } from '@angular/common';
+import { ObjectUtil } from '../../_shared/util/object.util';
+import { CardErrorComponent } from '../card/card-error/card-error.component';
+import { ICard } from '../_shared/model/card.interface';
 
 @Component({
   selector: 'app-card-display',
   standalone: true,
-  imports: [],
+  imports: [
+    NgComponentOutlet
+  ],
   templateUrl: './card-display.component.html',
   styleUrl: './card-display.component.scss'
 })
-export class CardDisplayComponent implements AfterViewInit {
+export class CardDisplayComponent {
   @ViewChild('card', { read: ViewContainerRef }) cardContainer!: ViewContainerRef;
+  card = input.required<ICard>();
 
-  @Input() card!: { name: string, component: any, style: any };
-
+  private componentSelected!: Type<any>;
   private componentsMap: { [key: string]: any } = {
     'app-card-simple': CardSimpleComponent,
     'app-card-double': CardDoubleComponent,
     'app-card-table': CardTableComponent,
   };
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
+  get component(): Type<any> {
+    return this.componentSelected = this.componentsMap[this.card().component] || CardErrorComponent;
   }
 
-  ngAfterViewInit() {
-    this.renderCards();
-  }
+  get inputs(): any {
+    const isCardErrorComponent = this.componentSelected === CardErrorComponent;
+    const isEmpty = ObjectUtil.isEmpty(this.card().inputs);
 
-  renderCards() {
-    const component = this.componentsMap[this.card.component];
-
-    if(!component) {
-      throw new Error(`Component ${this.card.component} not found`);
+    if (isCardErrorComponent || isEmpty) {
+      return undefined;
     }
 
-    this.cardContainer.clear();
-
-    const factory = this.componentFactoryResolver.resolveComponentFactory(component);
-    const componentRef = this.cardContainer.createComponent(factory);
-    Object.assign(componentRef.location.nativeElement.style, { background: this.card.style.color });
+    return this.card().inputs;
   }
 }

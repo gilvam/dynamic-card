@@ -1,0 +1,33 @@
+$color-warn: darkred;
+
+:host {
+
+  h3 {
+    color: $color-warn
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 32px);
+
+    figure {
+      display: contents;
+
+      img {
+        opacity: 0.8;
+        object-fit: contain;
+        min-height: 60px;
+        max-height: 150px;
+      }
+
+      figcaption {
+        font-size: 18px;
+        margin-top: 8px;
+        color: $color-warn;
+      }
+    }
+  }
+}
