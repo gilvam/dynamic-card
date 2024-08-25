@@ -9,4 +9,5 @@ import { Component, input } from '@angular/core';
 })
 export class CardSimpleComponent {
   title = input<string>();
+  backGround = input<string>();
 }

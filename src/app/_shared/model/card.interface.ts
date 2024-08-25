@@ -1,5 +1,10 @@
 export interface ICard {
   component: string,
-  style: Record<string, unknown>,
+  style: ICardStyle,
   inputs: Record<string, unknown> | undefined
+}
+
+export interface ICardStyle {
+  color: string;
+  height: string;
 }

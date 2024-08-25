@@ -1,27 +1,28 @@
-<h1>Dynamic-card</h1>
-
-<nav class="menu__nav">
-  @for (item of list; track item) {
-    <a href="#{{ item.name }}">{{ item.name }}</a>
-  }
+<nav class="nav">
+  <ul>
+    @for (item of list; track item) {
+      <li><a class="nav__link" href="#{{ item.name }}">{{ item.name }}</a></li>
+    }
+  </ul>
 </nav>
 
-@for (item of list; track item) {
-  <article>
-    <h2 [id]="item.name">{{ item.name }}</h2>
+<main>
+  @for (item of list; track item) {
+    <section class="container">
+      <h2 class="container__title" [id]="item.name">{{ item.name }}</h2>
 
-    <div [style.gridTemplateAreas]="getGridTemplateArea(item.gridTemplateArea)">
-      @for (card of item.cards; track card; let i = $index) {
-        <div
-          [style.height]="card.style.height"
-          [style.background]="card.style.color"
-          [style.gridArea]="card.id"
-        >
-          <app-card-display [card]="card"></app-card-display>
-        </div>
-      }
-    </div>
+      <div class="container__grid" [style.gridTemplateAreas]="getGridTemplateArea(item.gridTemplateArea)">
+        @for (card of item.cards; track card; let i = $index) {
+          <div
+            class="container__grid__card"
+            [style.height]="card.style.height"
+            [style.gridArea]="card.id"
+          >
+            <app-card-display [card]="card"></app-card-display>
+          </div>
+        }
+      </div>
 
-  </article>
-}
-
+    </section>
+  }
+</main>

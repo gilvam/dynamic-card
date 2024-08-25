@@ -1,0 +1,9 @@
+@import '../../../public/style/main';
+
+:host {
+  .card-display {
+    @include card();
+    padding: 0;
+    display: flex;
+  }
+}

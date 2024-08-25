@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-card-error',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './card-error.component.scss'
 })
 export class CardErrorComponent {
-
+  card = input<string>();
+  backGround = input<string>();
 }

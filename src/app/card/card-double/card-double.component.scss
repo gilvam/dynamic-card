@@ -1,9 +1,15 @@
+@import '../../../../public/style/main';
+
 :host {
-  display: block;
-  overflow-y: auto;
-  max-height: calc(100% - 32px);
+  @include card();
 
   h4 {
     font-size: 15px;
+  }
+
+  > div {
+    display: block;
+    overflow-y: auto;
+    max-height: calc(100% - 32px);
   }
 }
