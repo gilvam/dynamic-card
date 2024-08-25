@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardDisplayComponent } from './card-display.component';
+import { CartChartCircleComponent } from './cart-chart-circle.component';
 
-describe('CardDisplayComponent', () => {
-  let component: CardDisplayComponent;
-  let fixture: ComponentFixture<CardDisplayComponent>;
+describe('CartChartCircleComponent', () => {
+  let component: CartChartCircleComponent;
+  let fixture: ComponentFixture<CartChartCircleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardDisplayComponent]
+      imports: [CartChartCircleComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CardDisplayComponent);
+    fixture = TestBed.createComponent(CartChartCircleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

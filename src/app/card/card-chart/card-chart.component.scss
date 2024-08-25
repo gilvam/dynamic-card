@@ -1,0 +1,31 @@
+@import '../../../../public/style/main';
+
+:host {
+  @include card();
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+    margin: auto;
+    width: 100%;
+
+    &__bar {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      text-align: center;
+      font-size: 14px;
+      box-sizing: border-box;
+      padding-bottom: 8px;
+      mix-blend-mode: multiply;
+      flex: 1;
+      max-width: 44px;
+      color: white;
+    }
+  }
+}

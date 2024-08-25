@@ -17,10 +17,29 @@ export const mockCards = [
       },
       {
         id: 'C',
-        component: 'CARD_NOT_FOUND_?',
+        component: '???????????????????????????????????????????????',
         inputs: { title: 'Card 3' },
-        style: { color: '#10564F', height: '260px' }
+        style: { color: '#97D49B', height: '260px' }
       },
+    ]
+  },
+
+  {
+    name: 'Details',
+    gridTemplateArea: ['A B'],
+    cards: [
+      {
+        id: 'A',
+        component: 'card-simple',
+        inputs: { title: 'Card 1' },
+        style: { color: '#CCB8D7', height: '100px' }
+      },
+      {
+        id: 'B',
+        component: 'card-double',
+        inputs: { title: 'Card 2' },
+        style: { color: '#C1C2AD', height: '100px' }
+      }
     ]
   },
   {
@@ -31,7 +50,7 @@ export const mockCards = [
         id: 'A',
         component: 'card-double',
         inputs: { title: 'Card 1', titleSecond: 'Second title' },
-        style: { color: '#E2808A', height: '200px' }
+        style: { color: '#FFD898', height: '200px' }
       },
     ]
   },
@@ -44,7 +63,7 @@ export const mockCards = [
     cards: [
       {
         id: 'A',
-        component: 'card-simple',
+        component: 'card-chart-circle',
         inputs: { title: 'Card 1' },
         style: { color: '#0067B3', height: '' }
       },
@@ -56,7 +75,7 @@ export const mockCards = [
       },
       {
         id: 'C',
-        component: 'card-simple',
+        component: 'card-chart',
         inputs: { title: 'Card 3' },
         style: { color: '#41729F', height: '' }
       },
@@ -64,13 +83,13 @@ export const mockCards = [
         id: 'D',
         component: 'card-simple',
         inputs: { title: 'Card 4' },
-        style: { color: '#189AB4', height: '' }
+        style: { color: '#076389', height: '' }
       },
       {
         id: 'E',
         component: 'card-table',
         inputs: { title: 'Card 5', description: 'description' },
-        style: { color: '#05445E', height: '632px' }
+        style: { color: '#189AB4', height: '632px' }
       },
     ]
   }

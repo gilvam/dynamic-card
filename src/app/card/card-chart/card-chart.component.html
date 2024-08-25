@@ -1,0 +1,7 @@
+<h3>{{ title() }}</h3>
+
+<div class="chart">
+  @for (item of chartList; track item) {
+    <div class="chart__bar" [style.height]="pixel(item)" [style.background]="background">{{ item }}</div>
+  }
+</div>
