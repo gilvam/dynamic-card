@@ -32,13 +32,13 @@ export const mockCards = [
         id: 'A',
         component: 'card-simple',
         inputs: { title: 'Card 1' },
-        style: { color: '#CCB8D7', height: '100px' }
+        style: { color: '#CCB8D7', height: '110px' }
       },
       {
         id: 'B',
         component: 'card-double',
         inputs: { title: 'Card 2' },
-        style: { color: '#C1C2AD', height: '100px' }
+        style: { color: '#C1C2AD', height: '110px' }
       }
     ]
   },
