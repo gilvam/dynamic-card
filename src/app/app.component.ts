@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CardRenderComponent } from './card-display/card-render.component';
+import { CardRenderComponent } from './card-render/card-render.component';
 import { mockCards } from '../../public/mock/config.mock';
 
 @Component({
