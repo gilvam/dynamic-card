@@ -2,7 +2,7 @@ export const mockCards = [
   {
     name: 'Users',
     gridTemplateArea: ['A B C'],
-    cards: [
+    cardItems: [
       {
         id: 'A',
         component: 'card-simple',
@@ -27,7 +27,7 @@ export const mockCards = [
   {
     name: 'Details',
     gridTemplateArea: ['A B'],
-    cards: [
+    cardItems: [
       {
         id: 'A',
         component: 'card-simple',
@@ -45,7 +45,7 @@ export const mockCards = [
   {
     name: 'Oriented',
     gridTemplateArea: ['A'],
-    cards: [
+    cardItems: [
       {
         id: 'A',
         component: 'card-double',
@@ -60,7 +60,7 @@ export const mockCards = [
       'A B E',
       'C D E'
     ],
-    cards: [
+    cardItems: [
       {
         id: 'A',
         component: 'card-chart-circle',

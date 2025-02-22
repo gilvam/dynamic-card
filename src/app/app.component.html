@@ -1,7 +1,7 @@
 <nav class="nav">
   <ul>
     @for (item of list; track item) {
-      <li><a class="nav__link" href="#{{ item.name }}">{{ item.name }}</a></li>
+      <li><a class="nav__link" [href]="sanitize(item.name)">{{ item.name }}</a></li>
     }
   </ul>
 </nav>
@@ -12,13 +12,13 @@
       <h2 class="container__title" [id]="item.name">{{ item.name }}</h2>
 
       <div class="container__grid" [style.gridTemplateAreas]="getGridTemplateArea(item.gridTemplateArea)">
-        @for (card of item.cards; track card; let i = $index) {
+        @for (card of item.cardItems; track card; let i = $index) {
           <div
             class="container__grid__card"
             [style.height]="card.style.height"
             [style.gridArea]="card.id"
           >
-            <app-card-render [card]="card"></app-card-render>
+            <app-card-render [cardItem]="card"></app-card-render>
           </div>
         }
       </div>

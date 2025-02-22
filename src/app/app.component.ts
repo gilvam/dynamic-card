@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CardRenderComponent } from './card-render/card-render.component';
 import { mockCards } from '../../public/mock/config.mock';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardRenderComponent],
+  imports: [CardRenderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -17,4 +16,7 @@ export class AppComponent {
     return area.map(row => `"${ row }"`).join(' ');
   }
 
+  sanitize(name: string): string {
+    return `#${name.replace(/\s+/g, '-').toLowerCase()}`;
+  }
 }

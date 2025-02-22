@@ -8,7 +8,7 @@ import { CardErrorComponent } from '../card/card-error/card-error.component';
 import { ColorUtil } from '../../_shared/util/color.util';
 import { CardChartComponent } from '../card/card-chart/card-chart.component';
 import { CartChartCircleComponent } from '../card/cart-chart-circle/cart-chart-circle.component';
-import { ICard } from '../_shared/model/card.interface';
+import { ICardItem } from '../_shared/model/card.interface';
 
 @Component({
   selector: 'app-card-render',
@@ -20,10 +20,10 @@ import { ICard } from '../_shared/model/card.interface';
   styleUrls: ['./card-render.component.scss']
 })
 export class CardRenderComponent {
-  card = input.required<ICard>();
+  cardItem = input.required<ICardItem>();
 
-  private componentSelected!: Type<any>;
-  private componentsMap: { [key: string]: any } = {
+  private componentSelected: unknown;
+  private componentsMap: Record<string, any>  = {
     'card-simple': CardSimpleComponent,
     'card-double': CardDoubleComponent,
     'card-table': CardTableComponent,
@@ -32,25 +32,23 @@ export class CardRenderComponent {
   };
 
   get background(): string {
-    const darken = ColorUtil.hexadecimalToHslDarken(this.card().style.color, 4);
-    const lighten = `rgb(from ${ this.card().style.color } r g b / 0.8)`;
+    const darken = ColorUtil.hexadecimalToHslDarken(this.cardItem().style.color, 4);
+    const lighten = `rgb(from ${ this.cardItem().style.color } r g b / 0.8)`;
     return `radial-gradient(circle, ${ lighten } 0%, ${ darken } 100%)`;
   }
 
-  get component(): Type<any> {
-    this.componentSelected = this.componentsMap[this.card().component] || CardErrorComponent;
-
-    return this.componentSelected;
+  get component(): Type<unknown> {
+    return this.componentSelected = this.componentsMap[this.cardItem().component] || CardErrorComponent;
   }
 
   get inputs(): any {
     const isCardErrorComponent = this.componentSelected === CardErrorComponent;
-    const isEmpty = ObjectUtil.isEmpty(this.card().inputs);
+    const isEmpty = ObjectUtil.isEmpty(this.cardItem().inputs);
 
     if (isCardErrorComponent || isEmpty) {
       return undefined;
     }
 
-    return { ...this.card().inputs };
+    return { ...this.cardItem().inputs };
   }
 }
