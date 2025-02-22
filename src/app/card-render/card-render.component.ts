@@ -11,44 +11,47 @@ import { CartChartCircleComponent } from '../card/cart-chart-circle/cart-chart-c
 import { ICardItem } from '../_shared/model/card.interface';
 
 @Component({
-  selector: 'app-card-render',
-  standalone: true,
-  imports: [
-    NgComponentOutlet
-  ],
-  templateUrl: './card-render.component.html',
-  styleUrls: ['./card-render.component.scss']
+	selector: 'app-card-render',
+	standalone: true,
+	imports: [NgComponentOutlet],
+	templateUrl: './card-render.component.html',
+	styleUrls: ['./card-render.component.scss'],
 })
 export class CardRenderComponent {
-  cardItem = input.required<ICardItem>();
+	cardItem = input.required<ICardItem>();
 
-  private componentSelected: unknown;
-  private componentsMap: Record<string, any>  = {
-    'card-simple': CardSimpleComponent,
-    'card-double': CardDoubleComponent,
-    'card-table': CardTableComponent,
-    'card-chart': CardChartComponent,
-    'card-chart-circle': CartChartCircleComponent,
-  };
+	private componentSelected: unknown;
+	private componentsMap: Record<string, any> = {
+		'card-simple': CardSimpleComponent,
+		'card-double': CardDoubleComponent,
+		'card-table': CardTableComponent,
+		'card-chart': CardChartComponent,
+		'card-chart-circle': CartChartCircleComponent,
+	};
 
-  get background(): string {
-    const darken = ColorUtil.hexadecimalToHslDarken(this.cardItem().style.color, 4);
-    const lighten = `rgb(from ${ this.cardItem().style.color } r g b / 0.8)`;
-    return `radial-gradient(circle, ${ lighten } 0%, ${ darken } 100%)`;
-  }
+	get background(): string {
+		const darken = ColorUtil.hexadecimalToHslDarken(
+			this.cardItem().style.color,
+			4,
+		);
+		const lighten = `rgb(from ${this.cardItem().style.color} r g b / 0.8)`;
+		return `radial-gradient(circle, ${lighten} 0%, ${darken} 100%)`;
+	}
 
-  get component(): Type<unknown> {
-    return this.componentSelected = this.componentsMap[this.cardItem().component] || CardErrorComponent;
-  }
+	get component(): Type<unknown> {
+		return (this.componentSelected =
+			this.componentsMap[this.cardItem().component] || CardErrorComponent);
+	}
 
-  get inputs(): any {
-    const isCardErrorComponent = this.componentSelected === CardErrorComponent;
-    const isEmpty = ObjectUtil.isEmpty(this.cardItem().inputs);
+	get inputs(): any {
+		const isCardErrorComponent =
+			this.componentSelected === CardErrorComponent;
+		const isEmpty = ObjectUtil.isEmpty(this.cardItem().inputs);
 
-    if (isCardErrorComponent || isEmpty) {
-      return undefined;
-    }
+		if (isCardErrorComponent || isEmpty) {
+			return undefined;
+		}
 
-    return { ...this.cardItem().inputs };
-  }
+		return { ...this.cardItem().inputs };
+	}
 }

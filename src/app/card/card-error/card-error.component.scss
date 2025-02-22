@@ -1,34 +1,34 @@
-@import '../../../../public/style/main';
+@import "../../../../public/style/main";
 
 $color-warn: darkred;
 
 :host {
-  @include card();
-  padding: 0;
-  background: radial-gradient(circle, #E43D40 0%, #F37970 30%, #FABEC0 100%);
+	@include card();
+	padding: 0;
+	background: radial-gradient(circle, #e43d40 0%, #f37970 30%, #fabec0 100%);
 
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    position: relative;
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		position: relative;
 
-    figure {
-      position: absolute;
+		figure {
+			position: absolute;
 
-      img {
-        width: 110px;
-        max-height: 90px;
-      }
+			img {
+				width: 110px;
+				max-height: 90px;
+			}
 
-      figcaption {
-        font-size: 19px;
-        margin-top: 12px;
-        color: $color-warn;
-        text-align: center;
-      }
-    }
-  }
+			figcaption {
+				font-size: 19px;
+				margin-top: 12px;
+				color: $color-warn;
+				text-align: center;
+			}
+		}
+	}
 }

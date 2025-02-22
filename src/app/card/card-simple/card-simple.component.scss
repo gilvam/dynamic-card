@@ -1,21 +1,21 @@
-@import '../../../../public/style/main';
+@import "../../../../public/style/main";
 
 :host {
-  @include card();
-  display: flex;
-  flex-direction: column;
+	@include card();
+	display: flex;
+	flex-direction: column;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
 
-    p {
-      margin: 0;
-      text-align: center;
-      max-width: 200px;
-    }
-  }
+		p {
+			margin: 0;
+			text-align: center;
+			max-width: 200px;
+		}
+	}
 }

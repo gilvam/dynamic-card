@@ -1,28 +1,36 @@
 <nav class="nav">
-  <ul>
-    @for (item of list; track item) {
-      <li><a class="nav__link" [href]="sanitize(item.name)">{{ item.name }}</a></li>
-    }
-  </ul>
+	<ul>
+		@for (item of list; track item) {
+			<li>
+				<a class="nav__link" [href]="'#'+item.name">{{
+					item.name
+				}}</a>
+			</li>
+		}
+	</ul>
 </nav>
 
 <main>
-  @for (item of list; track item) {
-    <section class="container">
-      <h2 class="container__title" [id]="item.name">{{ item.name }}</h2>
+	@for (item of list; track item) {
+		<section class="container">
+			<h2 class="container__title" [id]="item.name">{{ item.name }}</h2>
 
-      <div class="container__grid" [style.gridTemplateAreas]="getGridTemplateArea(item.gridTemplateArea)">
-        @for (card of item.cardItems; track card; let i = $index) {
-          <div
-            class="container__grid__card"
-            [style.height]="card.style.height"
-            [style.gridArea]="card.id"
-          >
-            <app-card-render [cardItem]="card"></app-card-render>
-          </div>
-        }
-      </div>
-
-    </section>
-  }
+			<div
+				class="container__grid"
+				[style.gridTemplateAreas]="
+					getGridTemplateArea(item.gridTemplateArea)
+				"
+			>
+				@for (card of item.cardItems; track card; let i = $index) {
+					<div
+						class="container__grid__card"
+						[style.height]="card.style.height"
+						[style.gridArea]="card.id"
+					>
+						<app-card-render [cardItem]="card"></app-card-render>
+					</div>
+				}
+			</div>
+		</section>
+	}
 </main>

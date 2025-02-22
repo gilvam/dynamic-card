@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+.swc
 
 # Node
 /node_modules

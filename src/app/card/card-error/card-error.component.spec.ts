@@ -4,27 +4,29 @@ import { CardErrorComponent } from './card-error.component';
 import { InputSignal } from '@angular/core';
 
 describe('CardErrorComponent', () => {
-  let component: CardErrorComponent;
-  let fixture: ComponentFixture<CardErrorComponent>;
+	let component: CardErrorComponent;
+	let fixture: ComponentFixture<CardErrorComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [CardErrorComponent],
-    }).compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [CardErrorComponent],
+		}).compileComponents();
 
-    TestBed.runInInjectionContext(() => {
-      fixture = TestBed.createComponent(CardErrorComponent);
-      component = fixture.componentInstance;
-    });
-  });
+		TestBed.runInInjectionContext(() => {
+			fixture = TestBed.createComponent(CardErrorComponent);
+			component = fixture.componentInstance;
+		});
+	});
 
-  beforeEach(() => {
-    component.card = (() => 'card') as InputSignal<string | undefined>;
-    component.backGround = (() => 'ground') as InputSignal<string | undefined>;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		component.card = (() => 'card') as InputSignal<string | undefined>;
+		component.backGround = (() => 'ground') as InputSignal<
+			string | undefined
+		>;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });
