@@ -6,6 +6,7 @@ export interface ICard {
 
 
 export interface ICardItem {
+  id: string,
   component: string,
   style: ICardStyle,
   inputs: Record<string, unknown> | undefined

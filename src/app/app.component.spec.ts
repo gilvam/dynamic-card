@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     const result = app.sanitize('NomeDoItem');
-    expect(result).toBe('#nomedoit');
+    expect(result).toBe('#nomedoitem');
   });
 
   it('should sanitize a name with special characters', () => {

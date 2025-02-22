@@ -1,4 +1,6 @@
-export const mockCards = [
+import { ICard } from '../../src/app/_shared/model/card.interface';
+
+export const mockCards: ICard[] = [
   {
     name: 'Users',
     gridTemplateArea: ['A B C'],
